@@ -21,12 +21,12 @@ long Timer = 0;     //dient der Zeitmessung
 byte Phase = 0;     //repräsentiert die aktuelle Ampelphase 
 
 void setup() {
-    pinMode (AMPEL1ROT, OUTPUT);
-    pinMode (AMPEL1GELB, OUTPUT);
-    pinMode (AMPEL1GRUEN, OUTPUT);
-    pinMode (AMPEL2ROT, OUTPUT);
-    pinMode (AMPEL2GELB, OUTPUT);
-    pinMode (AMPEL2GRUEN, OUTPUT);
+    pinMode (AMPEL1RED, OUTPUT);
+    pinMode (AMPEL1YELLOW, OUTPUT);
+    pinMode (AMPEL1GREEN, OUTPUT);
+    pinMode (AMPEL2RED, OUTPUT);
+    pinMode (AMPEL2YELLOW, OUTPUT);
+    pinMode (AMPEL2GREEN, OUTPUT);
     pinMode (TASTE, INPUT_PULLUP);
 }
 
@@ -59,51 +59,51 @@ void loop() {
 switch (Phase)                   
 {
     case 0: //Beide Ampeln rot
-     setzeAmpel (1, ROT);
-     setzeAmpel (2, ROT);
+     setzeAmpel (1, RED);
+     setzeAmpel (2, RED);
      Timer = millis() + 2000;
      Phase++;               //Weiterschaltung der Ampelphase
     break;
 
     case 1: //Ampel 1 rotgelb
-     setzeAmpel1 (1, ROTGELB);
+     setzeAmpel1 (1, REDYELLLOW);
      Timer = millis () + 1000;
      Phase++;
     break;
 
     case 2: //Ampel 1 grün
-     setzeAmpel (1, GRUEN);
+     setzeAmpel (1, GREEN);
      Timer = millis() + 8000;
      Phase++;
     break;
 
     case 3: //Ampel 1 Gelb
-     setzeAmpel (1, GELB);
+     setzeAmpel (1, YELLOW);
      Timer = millis() + 2000;
      Phase++;
     break;
 
     case 4: //Beide Ampeln rot
-     setzeAmpel (1, ROT);
+     setzeAmpel (1, RED);
      Timer = millis() + 2000;
      Phase++;
     break;
 
     case 5: //Ampel 2 Grün
-     setzeAmpel (2, GRUEN);
+     setzeAmpel (2, GREEN);
      Timer = millis() + 2000;
      Phase++;
     break;
 
     case 6: //Ampel 2 gelb 
-     setzeAmpel (2, GELB);
+     setzeAmpel (2, YELLOW);
      Timer = millis() + 2000;
      Phase = 0;   //nache Phase 7 beginnt Zyklus von vorn
     break;
 
     case 10: //beide Ampeln gelb
-     setzeAmpel (1, GELB);
-     setzeAmpel (2, GELB);
+     setzeAmpel (1, YELLOW);
+     setzeAmpel (2, YELLOW);
      Timer = millis() + 1000;
      Phase = 11;  //Phase 10 und 11 wechseln einander ab 
     break;        //und erzeugen so das gelbe Blinken
@@ -125,15 +125,15 @@ void setzeAmpel (byte Ampelnummer, byte Zustand)
     
     if(Ampelnummer == 1)
     {
-        rotPin = AMPEL1ROT;
-        gelbPin = AMPEL1GELB;
-        gruenPin = AMPEL1GRUEN;
+        rotPin = AMPEL1RED;
+        gelbPin = AMPEL1YELLOW;
+        gruenPin = AMPEL1GREEN;
     }
     if(Ampelnummer == 2)
     {
-        rotPin = AMPEL1ROT;
-        gelbPin = AMPEL1GELB;
-        gruenPin = AMPEL1GRUEN;
+        rotPin = AMPEL1RED;
+        gelbPin = AMPEL1YELLOW;
+        gruenPin = AMPEL1GREEN;
     }
 
     switch (Zustand)
