@@ -139,29 +139,29 @@ void setzeAmpel (byte Ampelnummer, byte Zustand)
     switch (Zustand)
     {
         case AUS:
-         digitalWrite(rotPin, LOW);
-         digitalWrite(gelbPin, LOW);
-         digitalWrite(gruenPin, LOW);
+         digitalWrite(redPin, LOW);
+         digitalWrite(yellowPin, LOW);
+         digitalWrite(greenPin, LOW);
         break;
         case GRUEN:
-         digitalWrite(rotPin, LOW);
-         digitalWrite(gelbPin, LOW);
-         digitalWrite(gruenPin, HIGH);
+         digitalWrite(redPin, LOW);
+         digitalWrite(yellowPin, LOW);
+         digitalWrite(greenPin, HIGH);
         break;
         case GELB:
-         digitalWrite(rotPin, LOW);
-         digitalWrite(gelbPin, HIGH);
-         digitalWrite(gruenPin, LOW);
+         digitalWrite(redPin, LOW);
+         digitalWrite(yellowPin, HIGH);
+         digitalWrite(greenPin, LOW);
         break;
         case ROTGELB:
-         digitalWrite(rotPin, HIGH);
-         digitalWrite(gelbPin, HIGH);
-         digitalWrite(gruenPin, LOW);
+         digitalWrite(redPin, HIGH);
+         digitalWrite(yellowPin, HIGH);
+         digitalWrite(greenPin, LOW);
         break;
         case ROT: default:
-         digitalWrite(rotPin, HIGH;
-         digitalWrite(gelbPin, LOW);
-         digitalWrite(gruenPin, LOW);
+         digitalWrite(redPin, HIGH;
+         digitalWrite(yellowPin, LOW);
+         digitalWrite(greenPin, LOW);
         break;
     }
 }
